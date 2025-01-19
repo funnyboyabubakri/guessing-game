@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guessing game</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(128, 0, 128, 0.937);
+            padding-top: 20vh;
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+            gap: 2vh;
+            justify-content: center;
+            align-items: center;
+            width: 600px;
+            height: 60vh;
+            box-shadow: 0 0 30px black;
+        }
+        h1{
+            font-size: 50px;
+            color: whitesmoke;
+        }
+        span{
+            color: whitesmoke;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 20px;
+        }
+        main{
+            width: 350px;
+            height: 15vh;
+            border-radius: 1.3vh;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: purple;
+            font-size: 23px;
+            text-align: center;
+            font-family: 550;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+        input{
+            width: 100px;
+            height: 7vh;
+            border: 3.5px solid;
+            border-radius: 1.5vh;
+            color: purple;
+        }
+        input::placeholder{
+            color: purple;
+            font-weight: 550;
+        }
+        button{
+            background-color: transparent;
+            color: white;
+            border: 1.5px solid white;
+            width: 65px;
+            height: 5vh;
+            border: 0.1px solid white;
+            border-radius: 1vh;
+            font-size: 19px;
+        }
+        button:hover{
+            transition: all 0.5s linear;
+            color: rgba(128, 0, 128, 0.819);
+            background-color: whitesmoke;
+            border-radius: 1.5vh;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>𝓖𝓾𝓮𝓼𝓼𝓲𝓷𝓰 𝓖𝓪𝓶𝓮</h1>
+        <span>Guess the nearest number from 1 to 10</span>
+        <main id="theMain"></main>
+        <input placeholder="Guess here..." id="myInput" type="text">
+        <button onclick="myButton()">𝓖𝓾𝓮𝓼𝓼</button>
+    </div>
+</body>
+</html>
+<script>
+
+let inputValue = document.getElementById('myInput')
+let main = document.getElementById('theMain')
+
+function myButton() {
+    let inputValue = Number(document.getElementById('myInput').value);
+
+
+    let guess = Math.floor(Math.random() * 10) + 1;
+    // console.log(guess);
+    // console.log(typeof inputValue);
+    // console.log(typeof guess);
+    
+    
+    if (inputValue === guess) {
+        // console.log('That is correct!');
+        main.innerHTML = `Yes is actually correct (BOOM!)`;
+    
+    } else {
+        // console.log('That is not correct');
+        main.innerHTML = ` ${inputValue} is not correct, the correct is ${guess}`
+        // main.innerHTML = `(inputValue is not correct)`;
+ 
+    }
+    
+    
+}
+
+</script>
